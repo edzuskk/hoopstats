@@ -1,32 +1,45 @@
 <x-layout>
     <div class="container">
-        <h1>Sveicināti HoopStats🏀</h1>
-        <p>Vietne, kurā varat redzēt NBA komandas un spēlētaju statistiku.</p>
-        <p> Ātra infromācija: </p>
-            <p>NBA Līderi: </p>
-                <ul>
+        <div class="compare-hero">
+            <h1>Sveicināti HoopStats🏀</h1>
+            <p>Vietne, kurā varat redzēt NBA komandas un spēlētaju statistiku.</p>
+        </div>
+        <br>
+        <div class="compare-hero">
+            <p> Ātra infromācija: </p>
+                <p>NBA Līderi: </p>
+                    <dl>
+                        @foreach($topShooter as $player)
+                            <dt>Visvairāk punktu sezonā: </dt>
+                                <dd><a href="{{ route('players.show', $player) }}"> {{ $player->full_name }}</a> - {{ $player->ppg }} 🎯</dd>
+                        @endforeach
+                        &nbsp
+                        @foreach($topRebounder as $player)
+                            <dt>Visvairāk atlēkušās bumbas sezonā: </dt>
+                                <dd><a href="{{ route('players.show', $player) }}">{{ $player->full_name }}</a> - {{ $player->rpg }} 🏀 </dd>
+                        @endforeach
+                        &nbsp
+                        @foreach($topAssister as $player)
+                            <dt>Visvairāk rezultatīvas piespēles sezonā: </dt>
+                                <dd><a href="{{ route('players.show', $player) }}">{{ $player->full_name }}</a> - {{ $player->apg }} 🤝</dd>
+                        @endforeach
+                        &nbsp
+                        @foreach($topBlocker as $player)
+                            <dt>Visvairāk bloķēti metieni sezonā: </dt>
+                                <dd><a href="{{ route('players.show', $player) }}">{{ $player->full_name }}</a> - {{ $player->bpg }} 🛡️</dd>
+                        @endforeach 
+                        &nbsp
+                        @foreach($topStealer as $player)
+                            <dt>Visvairāk nozagtas bumbas sezonā: </dt>
+                                <dd><a href="{{ route('players.show', $player) }}">{{ $player->full_name }}</a> - {{ $player->spg }} 🥷</dd>
+                        @endforeach
 
-                    @foreach($topShooter as $player)
-                    <li>Visvairāk punktu sezonā: {{ $player->full_name }} - {{ $player->ppg }} 🎯</li>
-                    @endforeach
- 
-                    @foreach($topRebounder as $player)
-                    <li>Visvairāk atlēkušās bumbas sezonā: {{ $player->full_name }} - {{ $player->rpg }} </li>
-                    @endforeach
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </div><br>
 
-                    @foreach($topAssister as $player)
-                    <li>Visvairāk rezultatīvas piespēles sezonā: {{ $player->full_name }} - {{ $player->apg }}</li>
-                    @endforeach
-
-                    @foreach($topBlocker as $player)
-                    <li>Visvairāk bloķēti metieni sezonā: {{ $player->full_name }} - {{ $player->bpg }}</li>
-                    @endforeach
-
-                    @foreach($topStealer as $player)
-                    <li>Visvairāk nozagtas bumbas sezonā: {{ $player->full_name }} - {{ $player->spg }}</li>
-                    @endforeach
-
-                </ul>
-            </li>
-    </div>
+    <a href="/update" style="text-decoration: none; color: red">Nospiežat šo tekstu, ja informācija ir novecujisi!</a>
+    
 </x-layout>

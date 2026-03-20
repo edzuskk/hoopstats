@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('team_id')->nullable();
             $table->string(column: 'team')->nullable();
-            $table->string('photo_url')->nullable()->after('team');
+            $table->string('photo_url')->nullable();
             $table->string('full_name');
             $table->string('birthday')->nullable();
             $table->string('college')->nullable();

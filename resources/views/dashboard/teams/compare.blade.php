@@ -1,85 +1,119 @@
 <x-layout>
-    <h1>Komandu salīdzināšana</h1>
-    <p style="color: black; font-size: 24px;">Izvēlaties komandas, lai salīdzināt tās</p>
-    <div style="display: flex; gap: 10px; align-items: center;">
-        <form action="{{ route('teams.compare') }}" method="POST">
-            @csrf
-            <select name="team1">
-                <option value="">Izvēlieties komadu</option>
-                @foreach($teams as $team)
-                    <option value="{{ $team->id }}">{{ $team->name }}</option>
-                @endforeach
-            </select>
+    <div class="compare-page">
+        <section class="compare-hero">
+            <h1>Komandu salīdzināšana</h1>
+            <p class="compare-subtitle">Izvēlieties divas komandas un salīdziniet to sniegumu galvenajās statistikas kategorijās.</p>
+        </section>
 
-            <span>un</span>
+        <section class="compare-panel">
+            <form action="{{ route('teams.compare') }}" method="POST" class="compare-form">
+                @csrf
+                <label class="compare-field" for="team1">
+                    <span>Komanda A</span>
+                    <select id="team1" name="team1" class="compare-select">
+                        <option value="">Izvēlieties komandu</option>
+                        @foreach($teams as $team)
+                            <option value="{{ $team->id }}" @selected((string) ($team1->id ?? '') === (string) $team->id)>
+                                {{ $team->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </label>
 
-            <select name="team2">
-                <option value="">Izvēlieties Komandu</option>
-                @foreach($teams as $team)
-                    <option value="{{ $team->id }}">{{ $team->name }}</option>
-                @endforeach
-            </select>
+                <span class="compare-divider">VS</span>
 
-            <button type="submit">Salīdzināt</button>
-        </form>
-    </div><br>
+                <label class="compare-field" for="team2">
+                    <span>Komanda B</span>
+                    <select id="team2" name="team2" class="compare-select">
+                        <option value="">Izvēlieties komandu</option>
+                        @foreach($teams as $team)
+                            <option value="{{ $team->id }}" @selected((string) ($team2->id ?? '') === (string) $team->id)>
+                                {{ $team->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </label>
 
-    <h1>Salīdzinājuma rezultāti</h1>
+                <button type="submit" class="compare-btn">Salīdzināt</button>
+            </form>
+        </section>
 
-    <div class="conference-tables">
-        <div class="conference-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Komanda</th>
-                        <th>Punkti</th>
-                        <th>Atlēkušās bumbas</th>
-                        <th>Rezultatīvas piespēles</th>
-                        <th>Bloķēti metieni</th>
-                        <th>Nozagtas bumbas</th>
-                    </tr>
-                </thead>
-                <tbody id="comparison-results">
-                    @if(isset($team1))
-                    <tr>
-                        <td><a href="{{ route('teams.show', $team1) }}">{{ $team1->name }}</a></td>
-                        <td>{{ $team1->pts ?? '-'  }}</td>
-                        <td>{{ $team1->reb ?? '-'  }}</td>
-                        <td>{{ $team1->ast ?? '-'  }}</td>
-                        <td>{{ $team1->stl ?? '-'  }}</td>
-                        <td>{{ $team1->blk ?? '-'  }}</td>
-                    </tr>
-                    @endif
-                </tbody>
-            </table>
-        </div>
+        <section>
+            <h2 class="compare-result-text">Salīdzinājuma rezultāti</h2>
 
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Komanda</th>
-                        <th>Punkti</th>
-                        <th>Atlēkušās bumbas</th>
-                        <th>Rezultatīvas piespēles</th>
-                        <th>Bloķēti metieni</th>
-                        <th>Nozagtas bumbas</th>
-                    </tr>
-                </thead>
-                <tbody id="comparison-results">
-                    @if(isset($team2))
-                    <tr>
-                        <td><a href="{{ route(name: 'teams.show', parameters: $team2) }}">{{ $team2->name }}</a></td>
-                        <td>{{ $team2->pts ?? '-'  }}</td>
-                        <td>{{ $team2->reb ?? '-'  }}</td>
-                        <td>{{ $team2->ast ?? '-'  }}</td>
-                        <td>{{ $team2->stl ?? '-'  }}</td>
-                        <td>{{ $team2->blk ?? '-'  }}</td>
-                    </tr>
-                    @endif
-                </tbody>
-            </table>
-        </div>
+            <div class="compare-results">
+                <article class="compare-card">
+                    <header class="compare-card-header">
+                        <p class="compare-card-label">Komanda A</p>
+                        <h3>{{ $team1->name ?? 'Nav izvēlēta' }}</h3>
+                    </header>
+
+                    <div class="compare-table-wrap">
+                        <table class="compare-table">
+                            <thead>
+                                <tr>
+                                    <th>Punkti</th>
+                                    <th>Atl. bumbas</th>
+                                    <th>Rezult. Piesp.</th>
+                                    <th>Bloķ. metieni</th>
+                                    <th>Nozagt. Bumb.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if(isset($team1))
+                                    <tr>
+                                        <td>{{ $team1->pts ?? '-' }}</td>
+                                        <td>{{ $team1->reb ?? '-' }}</td>
+                                        <td>{{ $team1->ast ?? '-' }}</td>
+                                        <td>{{ $team1->blk ?? '-' }}</td>
+                                        <td>{{ $team1->stl ?? '-' }}</td>
+                                    </tr>
+                                @else
+                                    <tr>
+                                        <td class="compare-empty" colspan="6">Izvēlies komandu A, lai redzētu statistiku.</td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <article class="compare-card">
+                    <header class="compare-card-header">
+                        <p class="compare-card-label">Komanda B</p>
+                        <h3>{{ $team2->name ?? 'Nav izvēlēta' }}</h3>
+                    </header>
+
+                    <div class="compare-table-wrap">
+                        <table class="compare-table">
+                            <thead>
+                                <tr>
+                                    <th>Punkti</th>
+                                    <th>Atl. bumbas</th>
+                                    <th>Rezult. Piesp.</th>
+                                    <th>Bloķ. metieni</th>
+                                    <th>Nozagt. Bumb.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if(isset($team2))
+                                    <tr>
+                                        <td>{{ $team2->pts ?? '-' }}</td>
+                                        <td>{{ $team2->reb ?? '-' }}</td>
+                                        <td>{{ $team2->ast ?? '-' }}</td>
+                                        <td>{{ $team2->blk ?? '-' }}</td>
+                                        <td>{{ $team2->stl ?? '-' }}</td>
+                                    </tr>
+                                @else
+                                    <tr>
+                                        <td class="compare-empty" colspan="6">Izvēlies komandu B, lai redzētu statistiku.</td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </div>
+        </section>
     </div>
-
 </x-layout>

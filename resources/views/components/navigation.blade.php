@@ -9,8 +9,5 @@
             <a class="compare" href="/players/compare">Spēlētāju salīdzināšana</a>
             <a class="compare" href="/teams/compare">Komandu salīdzināšana</a>
         </div>
-        <div class="nav-warning">
-            <p class="warning" style="font-size: 14px">JA INFORMĀCIJA IR NOVECOJUSI TAD NOSPIEŽAT <a href="/update" class="watning">ATJAUNINĀT!</a></p>
-        </div>
     </div>
 </nav>

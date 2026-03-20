@@ -11,7 +11,6 @@ use App\Http\Controllers\TeamCompareController;
 Route::get('update', function () {
     Artisan::call('players:sync-stats 2025-26');
     Artisan::call('teams:sync-stats 2025-26');
-
     return redirect('/');
 });
 

@@ -1,5 +1,189 @@
 <x-layout>
+    @if($teams->name === 'Denver Nuggets')
+        <style>
+            body{
+                background: linear-gradient(to right, #0d2440, #fec525, #8b2131);
+            }
+        </style>
+    @elseif($teams->name === 'Los Angeles Lakers')
+        <style>
+            body{
+                background: linear-gradient(to right, #552583, #ffffff, #fdb927);
+            }
+        </style>
+    @elseif($teams->name === 'Golden State Warriors')
+        <style>
+            body{
+                background: linear-gradient(to right, #1d428a, #ffffff, #ffc72c);
+            }
+        </style>
+    @elseif($teams->name === 'Boston Celtics')
+        <style>
+            body{
+                background: linear-gradient(to right, #007A33, #ffffff, #ba9653);
+            } 
+        </style>
+    @elseif($teams->name === 'Chicago Bulls')
+        <style>
+            body{
+                background: linear-gradient(to right, #ce1141, #ffffff, #000000);
+            }
+        </style>
+    @elseif($teams->name === 'Miami Heat')
+        <style>
+            body{
+                background: linear-gradient(to right, #98002e, #ffffff, #f9a01b);
+            }
+        </style>
+    @elseif($teams->name === 'Brooklyn Nets')
+        <style>
+            body{
+                background: linear-gradient(to right, #000000, #ffffff, #000000);
+            }
+        </style>
+    @elseif($teams->name === 'Philadelphia 76ers')
+        <style>
+            body{
+                background: linear-gradient(to right, #006bb6, #ffffff, #ed174c);
+            }
+        </style>
+    @elseif($teams->name === 'Toronto Raptors')
+        <style>
+            body{
+                background: linear-gradient(to right, #720202, #ffffff, #000000);
+            }
+        </style>
+    @elseif($teams->name === 'Milwaukee Bucks')
+        <style>
+            body{
+                background: linear-gradient(to right, #00471b, #ffffff, #eee1c6);
+            }
+        </style>
+    @elseif($teams->name === 'Phoenix Suns')
+        <style>
+            body{
+                background: linear-gradient(to right, #1d1160, #ffffff, #e56020);
+            }
+        </style>
+    @elseif($teams->name === 'Dallas Mavericks')
+        <style>
+            body{
+                background: linear-gradient(to right, #00538c, #ffffff, #b8c4ca);
+            }
+        </style>
+    @elseif($teams->name === 'Utah Jazz')
+        <style>
+            body{
+                background: linear-gradient(to right, #3E2680, #ffffff, #3E2680);
+            }
+        </style>
+    @elseif($teams->name === 'Atlanta Hawks')
+        <style>
+            body{
+                background: linear-gradient(to right, #e03a3e, #ffffff, #e03a3e);
+            }
+        </style>
+    @elseif($teams->name === 'New York Knicks')
+        <style>
+            body{
+                background: linear-gradient(to right, #006BB6, #F58426, #BEC0C2);
+            }
+        </style>
+    @elseif($teams->name === 'Orlando Magic')
+        <style>
+            body{
+                background: linear-gradient(to right, #000000, #0077c0, #ffffff);
+            }
+        </style>
+    @elseif($teams->name === 'Cleveland Cavaliers')
+        <style>
+            body{
+                background: linear-gradient(to right, #6f263d, #000000, #ffb81c);
+            }
+        </style>
+    @elseif($teams->name === 'Indiana Pacers')
+        <style>
+            body{
+                background: linear-gradient(to right, #002d62, #ffffff, #ffc633);
+            }
+        </style>
+    @elseif($teams->name === 'Memphis Grizzlies')
+        <style>
+            body{
+                background: linear-gradient(to right, #5d76a9, #ffffff, #12173f);
+            }
+        </style>
+    @elseif($teams->name === 'Sacramento Kings')
+        <style>
+            body{
+                background: linear-gradient(to right, #5a2d81, #ffffff, #63727a);
+            }
+        </style>
+    @elseif($teams->name === 'New Orleans Pelicans')
+        <style>
+            body{
+                background: linear-gradient(to right, #0c2340, #ffffff, #85714d);
+            }
+        </style>
+    @elseif($teams->name === 'Minnesota Timberwolves')
+        <style>
+            body{
+                background: linear-gradient(to right, #0f2d52, #ffffff, #08182b);
+            }
+        </style>
+    @elseif($teams->name === 'Portland Trail Blazers')
+        <style>
+            body{
+                background: linear-gradient(to right, #e03a3e, #ffffff, #000000);
+            }
+        </style>
+    @elseif($teams->name === 'Detroit Pistons')
+        <style>
+            body{
+                background: linear-gradient(to right, #c8102e, #ffffff, #1d42ba);
+            }
+        </style>
+    @elseif($teams->name === 'Washington Wizards')
+        <style>
+            body{
+                background: linear-gradient(to right, #e31837, #ffffff, #002b5c);
+            }
+        </style>
+    @elseif($teams->name === 'Los Angeles Clippers')
+        <style>
+            body{
+                background: linear-gradient(to right, #0c1b4d, #ffffff, #c8102e);
+            }
+        </style>
+    @elseif($teams->name === 'Charlotte Hornets')
+        <style>
+            body{
+                background: linear-gradient(to right, #1d1160, #ffffff, #00b2a9);
+            }
+        </style>
+    @elseif($teams->name === 'Houston Rockets')
+        <style>
+            body{
+                background: linear-gradient(to right, #ce1141, #ffffff, #000000);
+            }
+        </style>
+    @elseif($teams->name === 'San Antonio Spurs')
+        <style>
+            body{
+                background: linear-gradient(to right, #000000, #ffffff, #000000);
+            }
+        </style>
+    @elseif($teams->name === 'Oklahoma City Thunder')
+        <style>
+            body{
+                background: linear-gradient(to right, #007ac1, #ffffff, #f05133);
+            }
+        </style>
+    @endif
+
     <section class="detail-card">
+        <a class="back-link" href="/teams">← Atpakaļ uz komandām</a>
+        <br><br>
         <h1>{{ $teams->name }}</h1>
         <p>Rekords: Uzvaras {{ $teams->w }} / Zaudes: {{ $teams->l }}</p>
 
@@ -17,18 +201,17 @@
             <p><span>Pilsēta:</span> {{ $teams->city }}</p>
             <p><span>Arena:</span> {{ $teams->arena }}</p>
             <p><span>Galvenais treneris:</span> {{ $teams->head_coach }}</p>
-            <p><span>Lead assistant coach:</span> {{ $teams->lead_assistant_coach ?? 'Šai komandai tāda trenera nav'}}</p>
-            <p><span>Assistant coach:</span> {{ $teams->assistant_coach ?? 'Šai komandai tāda trenera nav'}}</p>
+            <p><span>Vadošais trenera asistents:</span> {{ $teams->lead_assistant_coach ?? 'Šai komandai tāda trenera nav'}}</p>
             <p><span>Treneris:</span> {{ $teams->trainer }}</p>
+            <p><span>Trenera asistents:</span> {{ $teams->assistant_coach ?? 'Šai komandai tāda trenera nav'}}</p>
             <p><span>Attīstības treneris:</span> {{ $teams->coach_development ?? 'Šai komandai tāda trenera nav'}}</p>
-            <p><span>Lead Assistant Coach:</span> {{ $teams->lead_assistant_coach ?? 'Šai komandai nav tāda trenera'}}</p>
             <p><span>Izveidota:</span> {{ $teams->founded }} gadā</p>
             <p><span>Uzvarēti NBA čempionāti:</span> {{ $teams->championships }}</p>
         </div>
     </section>
     
     <section class="detail-card">
-        <h2>Spēlētāji šajā komandā:</h2>
+        <h2>Sastāvs:</h2>
         @if($teams->players->isEmpty())
             <p class="detail-note">Šajā komandā nav spēlētāju.</p>
         @else
@@ -69,5 +252,4 @@
         </div>
     </section>
     <br>
-    <a class="back-link" href="/teams">← Atpakaļ uz komandām</a>
 </x-layout>

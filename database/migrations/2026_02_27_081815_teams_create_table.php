@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('arena')->nullable();
             $table->string('head_coach')->nullable();
             $table->string('lead_assistant_coach')->nullable();
-            $table->string('assistant_coach')->nullable();
+            $table->text('assistant_coach')->nullable();
             $table->string('trainer')->nullable();
             $table->string('trainer_assistant')->nullable();
             $table->string('coach_development')->nullable();

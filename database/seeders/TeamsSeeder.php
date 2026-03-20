@@ -20,7 +20,8 @@ class TeamsSeeder extends Seeder
              'arena' => 'Fiserv Forum',
              'head_coach' => 'Doc Rivers',
              'lead_assistant_coach'=> 'David Joerger',
-             'assitant_coach' => 'David Joerger, 
+             'assitant_coach' => 
+                'David Joerger, 
                 Vin Baker, 
                 Rex Kalamian, 
                 Darvin Ham, 
@@ -306,7 +307,7 @@ class TeamsSeeder extends Seeder
              'conference' => 'Western',
              'city' => 'Phoenix',
              'arena' => 'Footprint Center',
-             'head_coach' => 'MJordan Ott',
+             'head_coach' => 'Jordan Ott',
              'assistant_coach' => 
                 'Brian Randle,
                 Chaisson Allen,
@@ -667,6 +668,10 @@ class TeamsSeeder extends Seeder
             $team['trainer_assistant'] = $team['Strength and Conditioning Coach'];
          }
 
+         if (isset($team['assistant_coach']) && is_string($team['assistant_coach'])) {
+            $team['assistant_coach'] = preg_replace('/\s+/', ' ', trim($team['assistant_coach']));
+         }
+
          unset($team['assitant_coach'], $team['assistant_coaches']);
 
          $team = Arr::only($team, [
@@ -683,8 +688,6 @@ class TeamsSeeder extends Seeder
             'trainer',
             'trainer_assistant',
             'coach_development',
-            'owner',
-            'general_manager',
             'founded',
             'championships',
             'gp',

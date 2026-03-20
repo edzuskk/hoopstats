@@ -3,7 +3,7 @@
         <section class="detail-card">
             <h1>{{ $players->full_name }}</h1>
 
-            <p>Spēlētāja bilde:
+            <p>
                 @if(!empty($players->photo_url))
                     <div class="player-photo-wrap">
                         <img class="player-photo" src="{{ $players->photo_url }}" alt="{{ $players->full_name }} photo">
@@ -21,7 +21,7 @@
                 </p>
                 <p><span>No:</span> {{ $players->country }}</p>
                 <p><span>Garums:</span> {{ $players->height }}m</p>
-                <p><span>Svars:</span> {{ $players->weight }}lbs</p>
+                <p><span>Svars:</span> {{ $players->weight }}kg</p>
                 <p><span>Pozīcija:</span> {{ $players->position }}</p>
                 <p><span>Koledža:</span> {{ $players->college }}</p>
             </div>

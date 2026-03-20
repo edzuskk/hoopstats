@@ -13,12 +13,12 @@ Artisan::command('inspire', function () {
 
 Artisan::command('players:sync-stats {season=2025-26}', function (NbaStatsService $nbaStatsService) {
     $season = (string) $this->argument('season');
-    $this->info("Fetching NBA player stats for {$season}...");
+    $this->info("Gūst NBA spēlētāju statistiku {$season}...");
 
     try {
         $remoteRows = $nbaStatsService->fetchPlayerPerGameStats($season);
     } catch (\Throwable $exception) {
-        $this->error('Failed to fetch NBA stats: ' . $exception->getMessage());
+        $this->error('Neizdevās iegūt NBA spēlētāju statistiku: ' . $exception->getMessage());
         return 1;
     }
 
@@ -68,7 +68,7 @@ Artisan::command('players:sync-stats {season=2025-26}', function (NbaStatsServic
         $updated++;
     });
 
-    $this->info("Done. Updated {$updated} players.");
+    $this->info("Gatavs. Atjaunots {$updated} spēlētāju.");
 
     return 0;
 })->purpose('Sync player per-game stats from stats.nba.com');
@@ -77,12 +77,12 @@ Schedule::command('players:sync-stats 2025-26')->dailyAt('04:00');
 
 Artisan::command('teams:sync-stats {season=2025-26}', function (NbaStatsService $nbaStatsService) {
     $season = (string) $this->argument('season');
-    $this->info("Fetching NBA team stats for {$season}...");
+    $this->info("Gūst NBA komandu statistiku {$season}...");
 
     try {
         $remoteRows = $nbaStatsService->fetchTeamTraditionalStats($season);
     } catch (\Throwable $exception) {
-        $this->error('Failed to fetch NBA team stats: ' . $exception->getMessage());
+        $this->error('Neizdevās gūt NBA komandu statistiku: ' . $exception->getMessage());
         return 1;
     }
 
@@ -134,7 +134,7 @@ Artisan::command('teams:sync-stats {season=2025-26}', function (NbaStatsService 
         $updated++;
     });
 
-    $this->info("Done. Updated {$updated} teams.");
+    $this->info("Gatavs. Atjaunotas {$updated} komandas.");
 
     return 0;
 })->purpose('Sync team traditional stats from stats.nba.com');
