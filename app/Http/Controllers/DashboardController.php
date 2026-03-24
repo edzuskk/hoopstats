@@ -6,7 +6,7 @@ use App\Models\Player;
 
 class DashboardController extends Controller
 {   
-    // Parādīt sākuma lapu
+    // Parādīt sākuma lapu un labākos spēlētājus dažādās kategorijās
     public function index()
     {
         $topShooter = Player::orderByDesc('ppg')->take(1)->get();
