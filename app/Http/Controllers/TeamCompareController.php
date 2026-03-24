@@ -7,12 +7,15 @@ use App\Models\Team;
 
 class TeamCompareController extends Controller
 {
+
+    // Parādīt komandu salīdzināšanas lapu
     public function compareIndex()
     {
         $teams = Team::all();
         return view('dashboard.teams.compare', compact('teams'));
     }
 
+    // Apstrādāt komandu salīdzināšanas pieprasījumu
     public function compare(Request $request)
     {
         $team1ID = $request->input('team1');

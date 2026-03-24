@@ -1,4 +1,5 @@
 <nav>
+    {{-- Navigācijas pogas, kuras pārsūta uz nospiesto pogu --}}
     <div class="navbar">
         <div class="nav-hoopstats">
             <a class="hoopstats" href="/">HoopStats🏀</a>

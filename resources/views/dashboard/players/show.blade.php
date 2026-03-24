@@ -1,6 +1,8 @@
 <x-layout>
     <div>
         <section class="detail-card">
+            <a class="back-link" href="/players">← Atpakaļ uz spēlētājiem</a>
+            <br><br>
             <h1>{{ $players->full_name }}</h1>
 
             <p>
@@ -69,7 +71,5 @@
             </div>
         </div>
         </section>
-    
-        <a class="back-link" href="/players">← Atpakaļ uz spēlētājiem</a>
     </div>
 </x-layout>

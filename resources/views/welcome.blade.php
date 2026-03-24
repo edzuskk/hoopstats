@@ -9,6 +9,7 @@
             <p> Ātra infromācija: </p>
                 <p>NBA Līderi: </p>
                     <dl>
+                        {{-- Šeit tiek izmantoti cikli, lai parādītu katru līderi un viņu statistiku, kā arī saiti uz viņu profilu --}}
                         @foreach($topShooter as $player)
                             <dt>Visvairāk punktu sezonā: </dt>
                                 <dd><a href="{{ route('players.show', $player) }}"> {{ $player->full_name }}</a> - {{ $player->ppg }} 🎯</dd>
@@ -40,6 +41,4 @@
         </div>
     </div><br>
 
-    <a href="/update" style="text-decoration: none; color: red">Nospiežat šo tekstu, ja informācija ir novecujisi!</a>
-    
 </x-layout>

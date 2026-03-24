@@ -8,8 +8,10 @@ use Illuminate\Support\Str;
 
 class NbaStatsService
 {
-    public function fetchPlayerPerGameStats(string $season = '2025-26'): Collection
+    public function fetchPlayerPerGameStats(?string $season = null): Collection
     {
+        $season = $season ?: (string) config('services.nba.default_season', '2025-26');
+
         $response = Http::retry(3, 1500)
             ->withOptions([
                 'connect_timeout' => 15,
@@ -73,8 +75,10 @@ class NbaStatsService
         return $name;
     }
 
-    public function fetchTeamTraditionalStats(string $season = '2025-26'): Collection
+    public function fetchTeamTraditionalStats(?string $season = null): Collection
     {
+        $season = $season ?: (string) config('services.nba.default_season', '2025-26');
+
         $response = Http::retry(3, 1500)
             ->withOptions([
                 'connect_timeout' => 15,

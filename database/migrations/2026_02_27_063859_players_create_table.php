@@ -57,12 +57,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::table('teams', function (Blueprint $table) {
-            $table->dropColumn([
-                'gp', 'w', 'l', 'w_pct', 'min', 'pts', 'fgm', 'fga', 'fg_pct',
-                'fg3m', 'fg3a', 'fg3_pct', 'ftm', 'fta', 'ft_pct', 'oreb', 'dreb',
-                'reb', 'ast', 'tov', 'stl', 'blk', 'blka', 'pf_team', 'pfd', 'plus_minus',
-            ]);
-        });
+        Schema::dropIfExists('players');
     }
 };

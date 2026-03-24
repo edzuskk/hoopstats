@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 <body>
+    {{-- Navigācija --}}
     <x-navigation />
+    {{-- Saturs --}}
     <main class="page-container">
         {{ $slot }}
     </main>

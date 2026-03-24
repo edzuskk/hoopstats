@@ -2,6 +2,7 @@
   <h1>Visu NBA spēlētāju statistika</h1>
     <div>
     <div class="pagination-simple">
+      {{-- Šeit tiek parādīta vienkārša lapošanas navigācija, kas ļauj lietotājiem pārvietoties starp spēlētāju saraksta lapām, kā arī meklēšanas forma, lai filtrētu spēlētājus pēc vārda --}}
       @if ($players->onFirstPage())
         <span class="disabled">Iepriekšējā</span>
       @else
@@ -32,12 +33,13 @@
             <th>Punkti</th>
             <th>Atl. bumb.</th>
             <th>Rezult. piesp.</th>
-            <th>Bloķ. metieni</th>
-            <th>Nozagtas bumb.</th>
+            <th>Bloķ. met.</th>
+            <th>Nozagt. bumb.</th>
             <th>Komanda</th>
           </tr>
         </thead>
         <tbody>
+          {{-- Šeit tiek parādīts katrs spēlētājs ar viņa statistiku, kā arī saite uz viņa profilu un komandas profilu, ja komanda ir pieejama --}}
           @foreach ($players as $player)
             <tr>
               <td><a href="{{ route('players.show', $player) }}">{{ $player->full_name }}</a></td>

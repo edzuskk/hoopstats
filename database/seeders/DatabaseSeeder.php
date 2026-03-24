@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Šeit tiek izsaukti citi seederi, lai aizpildītu datubāzi ar sākotnējiem datiem
         $this->call([
             PlayersSeeder::class,
             TeamsSeeder::class,

@@ -10,6 +10,7 @@ class TeamsSeeder extends Seeder
 {
     public function run(): void
     {
+      //Komandu Seeder, lai datubāzē būtu visas komandas ar to informāciju
 
         $teams = [
             ['team_id' => 1, 'name' => 'Milwaukee Bucks',

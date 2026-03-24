@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Player;
 
 class PlayerCompareController extends Controller
-{
+{   
+    // Parādīt spēlētāju salīdzināšanas lapu
     public function compareIndex()
     {
         $players = Player::all();
         return view('dashboard.players.compare', compact('players'));
     }
 
+    // Apstrādāt spēlētāju salīdzināšanas pieprasījumu
     public function compare(Request $request)
     {
         $player1ID = $request->input('player1');

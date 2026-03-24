@@ -2,18 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Player;
-use App\Models\Team;
 
 class DashboardController extends Controller
-{
+{   
+    // Parādīt sākuma lapu
     public function index()
-    {
-        return view('welcome');
-    }
-
-    public function topPlayers()
     {
         $topShooter = Player::orderByDesc('ppg')->take(1)->get();
         $topRebounder = Player::orderByDesc('rpg')->take(1)->get();

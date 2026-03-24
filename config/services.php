@@ -35,5 +35,9 @@ return [
         ],
     ],
 
+    'nba' => [
+        'default_season' => env('NBA_DEFAULT_SEASON', '2025-26'),
+    ],
+
 
 ];

@@ -10,16 +10,19 @@ class PlayersSeeder extends Seeder
 {
     public function run(): void
     {
+        //Gūst informāciju no players.json faila un ievieto datubāzē
         $jsonPath = database_path('players.json');
         if (! file_exists($jsonPath)) {
             $this->command->error("Players JSON file not found at {$jsonPath}");
             return;
         }
 
+        // Nolasīt JSON datus un sagatavot ierakstus datubāzei
         $json = file_get_contents($jsonPath);
         $players = json_decode($json, true);
 
         $rows = [];
+        // Pārliecināties, ka JSON ir masīvs un satur datus
         foreach ($players as $player) {
             $rows[] = [
                 'team_id' => $player['team_id'] ?? null,
@@ -40,9 +43,10 @@ class PlayersSeeder extends Seeder
             ];
         }
 
+        // Ievietot datus datubāzē, ja ir sagatavoti ieraksti
         if (!empty($rows)) {
             DB::table('players')->insert($rows);
-            $this->command->info("Inserted " . count($rows) . " players.");
+            $this->command->info("Ievietoti " . count($rows) . " spēlētāji.");
         }
     }
 }
