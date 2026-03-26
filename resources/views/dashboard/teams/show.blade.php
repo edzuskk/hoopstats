@@ -24,7 +24,7 @@
     @elseif($teams->name === 'Boston Celtics')
         <style>
             .detail-card{
-                background: linear-gradient(67deg, #007A33,   #ba9653);
+                background: linear-gradient(67deg, #007A33,   #21d16b);
             }
 
         </style>
