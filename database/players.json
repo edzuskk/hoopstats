@@ -8075,50 +8075,5 @@
         "team":  "New Orleans Pelicans",
         "country":  "United States",
         "photo_url":  "https://cdn.nba.com/headshots/nba/latest/1040x760/1629627.png"
-    },
-    {
-        "full_name":  "Edžus Kurzemnieks",
-        "college":  "Latvia U18",
-        "height":  188.96,
-        "weight":  "100",
-        "position":  "PG",
-        "jersey_number":  "67",
-        "draft_year":  2026,
-        "draft_round":  1,
-        "draft_number":  1,
-        "team":  "San Antonio Spurs",
-        "country":  "Latvia",
-        "team_id":  25,
-        "photo_url":  "https://shorturl.at/xCzDV"
-    },
-    {
-        "full_name":  "Kārlis Bērziņš",
-        "college":  "Latvia U18",
-        "height":  169.67,
-        "weight":  "100",
-        "position":  "Point Guard",
-        "jersey_number":  "41",
-        "draft_year":  2026,
-        "draft_round":  1,
-        "draft_number":  2,
-        "team":  "San Antonio Spurs",
-        "country":  "Latvia",
-        "team_id":  25,
-        "photo_url":  "https://shorturl.at/xCzDV"
-    },
-    {
-        "full_name":  "Krists Kārlis Grundmanis",
-        "college":  "Latvia U18",
-        "height":  183,
-        "weight":  "82",
-        "position":  "Shooting Guard",
-        "jersey_number":  "18",
-        "draft_year":  2026,
-        "draft_round":  1,
-        "draft_number":  3,
-        "team":  "Detriot Pistons",
-        "country":  "Latvia",
-        "team_id":  22,
-        "photo_url":  "https://shorturl.at/xCzDV"
     }
 ]
