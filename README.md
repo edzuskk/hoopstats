@@ -6,3 +6,5 @@
 <p>Tālāk sekos šis komandas lai gūt spēlētāju un komandu statistiku:</p>
 <li>Spēlētāju statistika: php artisan players:sync-stats 2025-26 <li>
 <li>Komandu statistika: php artisan teams:sync-stats 2025-26</li>
+
+<p>!Uzmanību! Ja ir slikts vai vājšs internets statistika netiks atjaunota/iegūta!</p>
